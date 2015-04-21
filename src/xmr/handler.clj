@@ -5,7 +5,10 @@
             [hiccup.page :as page]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
 
-            [xmr.views.layout :as layout]))
+            [xmr.models.course :as model]
+            [xmr.controllers.courses :as courses]
+            [xmr.views.layout :as layout])
+  (:gen-class))
 
 ;; (def testdata
 ;;   {:name "Endimensionell analys"
@@ -43,7 +46,8 @@
 
 
 (defroutes app-routes
-  (GET "/" [] (layout.index))
+  courses/routes
+  (GET "/" [] (layout/index))
   (route/resources "/")
   (route/not-found "Not Found"))
 
