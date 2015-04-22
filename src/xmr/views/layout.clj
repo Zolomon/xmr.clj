@@ -29,10 +29,16 @@
            [:p.lead "Use this document as a way to quickly start any new project."]]))
 
 (defn all [courses]
-  (common "xmr.clj"
-          [:div.starter-template
-           [:h1 "all Bootstrap starter template"]
-           [:ul
-            [:li "test2"]
-            (for [course courses]
-              [:li course])]]))
+  (common "xmr.clj" [:div.container
+                     [:div.row
+                      [:ul
+                       (for [course courses]
+                         [:li course])]]])
+;; (common "xmr.clj"
+  ;;         [:div.starter-template
+  ;;          [:h1 "all Bootstrap starter template"]
+  ;;          [:ul
+  ;;           [:li "test2"]
+  ;;           (for [course courses]
+  ;;             [:li course])]])
+  )
