@@ -6,14 +6,15 @@
             [xmr.models.course :as model]))
 
 (defn index []
-  (view/index (model/all)))
+  (view/all (model/all)))
 
-(defn create
-  [course]
-  (when-not (str/blank? course)
-    (model/create course))
-  (ring/redirect "/"))
+;; (defn create
+;;   [course]
+;;   (when-not (str/blank? course)
+;;     (model/create course))
+;;   (ring/redirect "/"))
 
 (def routes
   (GET "/" [] (index))
-  (POST "/" [course] (create course)))
+  ;(POST "/" [course] (create course))
+)

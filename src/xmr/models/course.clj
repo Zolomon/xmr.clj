@@ -1,15 +1,21 @@
 (ns xmr.models.course
   (:require [clojure.java.jdbc :as sql]))
 
-(def db-path
-  "resources/database.db")
+(def db
+  {:classname "org.sqlite.JDBC"
+   :subprotocol "sqlite"
+   :subname "resources/database.db"
+   })
 
 (defn all []
-  (sql/with-connection db-path
-    (sql/with-query-results results
-      ["select * from courses order by id desc"]
-      (into [] results))))
+  )
 
-(defn create [name codename]
-  (sql/with-connection db-path
-    (sql/insert-values :courses [:name :codename] [name codename])))
+;; (defn all []
+;;   (sql/with-connection db
+;;     (sql/with-query-results results
+;;       ["select * from courses order by id desc"]
+;;       (into [] results))))
+
+;; (defn create [name codename]
+;;   (sql/with-connection db
+;;     (sql/insert-values :courses [:name :codename] [name codename])))
