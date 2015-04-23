@@ -8,7 +8,8 @@
    })
 
 (defn all []
-  )
+  (into [] (sql/query db ["select * from courses order by id desc"])))
+
 
 ;; (defn all []
 ;;   (sql/with-connection db
@@ -16,6 +17,6 @@
 ;;       ["select * from courses order by id desc"]
 ;;       (into [] results))))
 
-;; (defn create [name codename]
-;;   (sql/with-connection db
-;;     (sql/insert-values :courses [:name :codename] [name codename])))
+(defn create [name codename]
+  
+    (sql/insert-values :courses [:name :codename] [name codename])))

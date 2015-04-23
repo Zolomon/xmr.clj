@@ -5,16 +5,16 @@
             [xmr.views.layout :as view]
             [xmr.models.course :as model]))
 
-;;(defn index []
-;;  (view/all (model/all)))
+(defn index []
+  (view/all (model/all)))
 
-;; (defn create
-;;   [course]
-;;   (when-not (str/blank? course)
-;;     (model/create course))
-;;   (ring/redirect "/"))
+(defn create
+  [course]
+  (when-not (str/blank? course)
+    (model/create course))
+  (ring/redirect "/"))
 
-;; (def routes
-;;   (GET "/" [] (index))
-;;   ;(POST "/" [course] (create course))
-;;)
+(def routes
+  (GET "/" [] (index))
+  (POST "/" [course] (create course))
+)

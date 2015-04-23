@@ -46,8 +46,7 @@
 
 
 (defroutes app-routes
-  ;;courses/routes
-  (GET "/" []  (layout/all ["bengt" "ericsson"]))
+  courses/routes
   (route/resources "/")
   (route/not-found "Not Found"))
 
